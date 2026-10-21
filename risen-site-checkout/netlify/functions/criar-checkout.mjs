@@ -30,7 +30,7 @@ export default async (req) => {
   const handle = process.env.INFINITEPAY_HANDLE;
   const siteUrl = (process.env.SITE_URL || "").replace(/\/+$/, "");
   const precoPix = parseInt(process.env.PRECO_PIX_CENTAVOS || "16900", 10);
-  const precoCartao = parseInt(process.env.PRECO_CARTAO_CENTAVOS || "20400", 10);
+  const precoCartao = parseInt(process.env.PRECO_CARTAO_CENTAVOS || "21000", 10);
   const descricao = process.env.DESCRICAO_ITEM || "Imersão Risen School · 28/11/2026";
 
   if (!handle || !siteUrl) {
