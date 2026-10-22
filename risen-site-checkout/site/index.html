@@ -209,33 +209,6 @@ a{color:var(--gold)} a:hover{color:var(--gold-2)}
 .vpop-hint{position:absolute;left:12px;bottom:64px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(7,12,15,.85);color:#F0DFA0;font-family:var(--f-display);font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;pointer-events:none}
 @media (max-width:600px){.vpop-close{top:-14px;right:-6px}}
 
-/* checkout */
-.ck{border:0;padding:0;background:transparent;width:min(92vw,520px);max-width:none;color:var(--paper)}
-.ck::backdrop{background:rgba(3,6,8,.85)}
-.ck-box{position:relative;background:var(--ink);border:1px solid rgba(240,223,160,.5);border-radius:4px;padding:clamp(24px,5vw,40px);display:flex;flex-direction:column;gap:18px}
-.ck-close{position:absolute;top:10px;right:10px;width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:var(--paper);cursor:pointer;display:flex;align-items:center;justify-content:center}
-.ck-close:hover{color:var(--gold)}
-.ck h2{margin:0;font-family:var(--f-display);font-weight:400;font-size:clamp(1.6rem,4vw,2.1rem);line-height:1.1;padding-right:36px}
-.ck-sub{margin:0;color:var(--muted-ink);font-size:.95rem}
-.ck form{display:flex;flex-direction:column;gap:14px}
-.ck-field{display:flex;flex-direction:column;gap:6px}
-.ck-field label{font-family:var(--f-display);font-weight:700;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-ink)}
-.ck-field input{min-height:48px;padding:0 14px;border-radius:3px;border:1px solid rgba(244,239,228,.25);background:rgba(244,239,228,.04);color:var(--paper);font-family:var(--f-body);font-size:1rem}
-.ck-field input:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:transparent}
-.ck-methods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;border:0;padding:0;margin:4px 0 0}
-.ck-methods legend{font-family:var(--f-display);font-weight:700;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:6px;padding:0}
-.ck-opt{position:relative;display:flex;flex-direction:column;gap:2px;padding:14px;border:1px solid rgba(244,239,228,.25);border-radius:3px;cursor:pointer;min-height:44px}
-.ck-opt input{position:absolute;opacity:0;pointer-events:none}
-.ck-opt b{font-family:var(--f-display);font-weight:700;font-size:1.25rem;color:var(--paper)}
-.ck-opt span{font-size:.82rem;color:var(--muted-ink)}
-.ck-opt:has(input:checked){border-color:var(--gold);background:rgba(240,223,160,.08)}
-.ck-opt:has(input:checked) b{color:var(--gold)}
-.ck-opt:has(input:focus-visible){outline:2px solid var(--gold);outline-offset:2px}
-.ck-err{margin:0;padding:10px 12px;border-radius:3px;background:rgba(230,120,100,.12);color:#F2B8AC;font-size:.92rem}
-.ck-safe{margin:0;font-size:.8rem;color:var(--muted-ink);text-align:center}
-.ck .btn[disabled]{opacity:.6;cursor:wait}
-@media (max-width:420px){.ck-methods{grid-template-columns:minmax(0,1fr)}}
-
 </style>
 </head>
 <body>
@@ -252,27 +225,6 @@ a{color:var(--gold)} a:hover{color:var(--gold-2)}
 <div class="vpop-ph" id="vpop-ph">Espaço do vídeo de convite</div>
 </div>
 </dialog>
-<dialog class="ck" id="checkout" aria-labelledby="ck-title">
-<div class="ck-box">
-<button class="ck-close" type="button" id="ck-close" aria-label="Fechar"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
-<span class="label" style="color:var(--gold)">Imersão · 28.11 · Alphaville</span>
-<h2 id="ck-title">Garanta sua vaga</h2>
-<p class="ck-sub">Preencha seus dados e escolha a forma de pagamento. Você vai para o pagamento seguro da InfinitePay.</p>
-<form id="ck-form" novalidate>
-<div class="ck-field"><label for="ck-nome">Nome completo</label><input id="ck-nome" name="nome" autocomplete="name" required></div>
-<div class="ck-field"><label for="ck-email">E-mail</label><input id="ck-email" name="email" type="email" autocomplete="email" required></div>
-<div class="ck-field"><label for="ck-tel">WhatsApp com DDD</label><input id="ck-tel" name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000" required></div>
-<fieldset class="ck-methods">
-<legend>Forma de pagamento</legend>
-<label class="ck-opt"><input type="radio" name="metodo" value="pix" id="ck-pix" checked><b>R$ 169,00</b><span>Pix</span></label>
-<label class="ck-opt"><input type="radio" name="metodo" value="cartao" id="ck-cartao"><b>Até 12x</b><span>Cartão de crédito</span></label>
-</fieldset>
-<p class="ck-err" id="ck-err" role="alert" hidden></p>
-<button class="btn btn-gold" type="submit" id="ck-submit">Ir para o pagamento</button>
-</form>
-<p class="ck-safe">Pagamento processado pela InfinitePay. Dúvidas? <a href="https://wa.me/5511975586581?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20imers%C3%A3o%20da%20Risen%20School." target="_blank" rel="noopener">Fale no WhatsApp</a>.</p>
-</div>
-</dialog>
 
 
 <header class="hero" id="topo">
@@ -285,7 +237,7 @@ a{color:var(--gold)} a:hover{color:var(--gold-2)}
 <a href="#ministrantes">Professores</a>
 <a href="#participar">Como participar</a>
 <a href="#faq">FAQ</a>
-<a class="btn btn-gold" href="#pagamento">Inscreva-se</a>
+<a class="btn btn-gold" href="https://loja.infinitepay.io/risenschool/wxl2236-aula-presencial---risen-school---cartao-de">Inscreva-se</a>
 </div>
 </nav>
 
@@ -293,7 +245,7 @@ a{color:var(--gold)} a:hover{color:var(--gold-2)}
 <h1 class="sr">Risen School: imersão de louvor e adoração em 28 de novembro, Alphaville, SP</h1>
 <p class="label hero-school rise">Escola de louvor e adoração</p>
 <div class="hero-cta rise rise-3">
-<a class="btn btn-gold" href="#pagamento">Quero me inscrever</a>
+<a class="btn btn-gold" href="https://loja.infinitepay.io/risenschool/wxl2236-aula-presencial---risen-school---cartao-de">Quero me inscrever</a>
 <a class="btn btn-line" href="#sobre">Saiba mais</a>
 </div>
 </div>
@@ -399,11 +351,11 @@ a{color:var(--gold)} a:hover{color:var(--gold-2)}
 <div class="plans">
 <article class="plan plan-main">
 <span class="label">Individual</span>
-<span class="price"><small class="price-x">Até</small> 12x <small class="price-x price-after">no cartão de crédito</small></span>
-<span class="sub">ou R$ 169,00 no Pix</span>
+<span class="price"><small class="price-x">10x de</small> R$ 19,90 <small class="price-x price-after">no cartão</small></span>
+<span class="sub">ou R$ 169,00 à vista no Pix</span>
 <p>Para quem vem por conta própria e quer viver o dia inteiro de ensino e adoração.</p>
 <ul><li>4 módulos de ensino e sessão prática</li><li>Consagração e ministração final</li><li>Apostila da imersão</li><li>Credenciamento com café</li></ul>
-<a class="btn btn-gold" href="#pagamento">Inscrever-me</a>
+<a class="btn btn-gold" href="https://loja.infinitepay.io/risenschool/wxl2236-aula-presencial---risen-school---cartao-de">Inscrever-me</a>
 </article>
 <article class="plan plan-alt">
 <span class="label">Equipe de louvor</span>
@@ -424,7 +376,7 @@ a{color:var(--gold)} a:hover{color:var(--gold-2)}
 </div>
 <div class="faq">
 <details open><summary><span>Quando e onde vai ser?</span><span class="sign" aria-hidden="true"></span></summary><p>No sábado, 28 de novembro de 2026, das 9h às 17h30 (credenciamento a partir das 8h30), em Alphaville, SP. O endereço completo será enviado aos inscritos.</p></details>
-<details><summary><span>Quanto custa?</span><span class="sign" aria-hidden="true"></span></summary><p>A inscrição individual pode ser paga em até 12x no cartão de crédito, ou R$ 169,00 no Pix. Para equipes de louvor, fale com a gente pelo WhatsApp. São só 50 vagas.</p></details>
+<details><summary><span>Quanto custa?</span><span class="sign" aria-hidden="true"></span></summary><p>A inscrição individual sai em 10x de R$ 19,90 no cartão, ou R$ 169,00 à vista no Pix. Para equipes de louvor, fale com a gente pelo WhatsApp. São só 50 vagas.</p></details>
 <details><summary><span>É uma imersão de técnica musical?</span><span class="sign" aria-hidden="true"></span></summary><p>Não. O foco são princípios, visão, coração e conduta do ministro de louvor, e não técnica vocal ou instrumental.</p></details>
 <details><summary><span>Preciso ser músico para participar?</span><span class="sign" aria-hidden="true"></span></summary><p>Não. É para cantores, músicos, líderes, equipe técnica, pastores e qualquer pessoa que serve ou deseja servir no ministério de louvor.</p></details>
 <details><summary><span>Como faço minha inscrição?</span><span class="sign" aria-hidden="true"></span></summary><p>Pelo botão “Fazer inscrição” nesta página. Se tiver dúvidas, fale com a gente pelo WhatsApp.</p></details>
@@ -438,10 +390,10 @@ a{color:var(--gold)} a:hover{color:var(--gold-2)}
 <div>
 <span class="label">Inscrições abertas</span>
 <h2 class="title" style="margin-top:16px">Diga sim ao chamado</h2>
-<div class="signup-facts"><span>28.11 [SP] · Alphaville</span><span>Até 12x no cartão de crédito · ou R$ 169,00 no Pix</span><span>50 vagas</span></div>
+<div class="signup-facts"><span>28.11 [SP] · Alphaville</span><span>10x de R$ 19,90 no cartão · ou R$ 169,00 à vista no Pix</span><span>50 vagas</span></div>
 </div>
 <div class="signup-cta">
-<a class="btn btn-ink" href="#pagamento">Fazer inscrição</a>
+<a class="btn btn-ink" href="https://loja.infinitepay.io/risenschool/wxl2236-aula-presencial---risen-school---cartao-de">Fazer inscrição</a>
 <a class="btn btn-line-ink" href="https://wa.me/5511975586581?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20imers%C3%A3o%20da%20Risen%20School." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35z"></path><path d="M12 2C6.49 2 2 6.49 2 12c0 1.87.51 3.7 1.47 5.3L2 22l4.84-1.44A9.96 9.96 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18.18a8.16 8.16 0 0 1-4.27-1.18l-.31-.18-2.87.85.86-2.82-.2-.29A8.18 8.18 0 1 1 12 20.18z"></path></svg> Tirar dúvidas</a>
 </div>
 </div>
@@ -454,7 +406,7 @@ a{color:var(--gold)} a:hover{color:var(--gold-2)}
 <div class="foot-top">
 <div class="foot-brand"><svg class="logo" viewBox="-2 -3 625.03 101.1" style="overflow:visible" role="img" aria-label="Risen School" fill="currentColor"><path d="M0,1.61h48.35c19.56,0,29.07,11.12,29.07,27.73,0,12.19-5.89,21.83-15.94,26.12l19.15,38.04h-16.34l-17.41-35.5H15v35.5H0V1.61ZM47.15,45.41c9.51,0,15.14-6.16,15.14-16.21,0-9.24-5.22-14.73-15.14-14.73H15v30.94h32.15Z"></path><path d="M96.71,1.61h15v91.89h-15V1.61Z"></path><path d="M129.13,67.24c0-1.07.14-2.01.14-2.81h15c0,.53-.13,1.87-.13,2.54,0,9.91,9.38,15.4,23.31,15.4,12.59,0,23.17-3.75,23.17-13.13,0-22.5-59.2-10.85-59.2-44.34,0-16.21,14.2-24.91,36.57-24.91,19.42,0,35.23,7.9,35.23,26.25v1.61h-14.87v-1.74c0-8.31-8.3-13.4-20.23-13.4-14.2,0-21.7,4.42-21.7,11.25,0,20.23,59.34,9.91,59.34,43.13,0,19.96-16.07,27.99-38.31,27.99-20.22,0-38.31-8.17-38.31-27.86Z"></path><path d="M223.16,1.61h71.26v12.86h-56.26v25.58h50.36v12.86h-50.36v27.73h57.06v12.86h-72.06V1.61Z"></path><path d="M313.45,1.61h14.46l41.92,57.6c1.47,1.74,4.02,5.76,5.09,7.64h.67V1.61h14.46v91.89h-13.93l-42.46-58.27c-1.34-2.14-4.02-6.16-5.09-7.9h-.67v66.17h-14.46V1.61Z"></path><path d="M415.29,54.98c0-.3,0-.54.05-.93h3.89c0,.25-.05.79-.05,1.13,0,4.33,4.28,6.5,9.9,6.5,3.25,0,9.94-.84,9.94-6.01,0-9.5-22.89-4.68-22.89-16.79,0-5.27,4.14-8.81,13.29-8.81,6.94,0,12.5,2.81,12.5,9.35v.59h-3.84v-.84c0-3.55-3.64-5.76-8.47-5.76-6.65,0-9.6,2.22-9.6,5.07,0,8.86,22.94,4.23,22.94,16.54,0,6.99-5.66,9.99-13.64,9.99-7.33,0-14.03-2.41-14.03-10.04Z"></path><path d="M448.42,47.55c0-11.62,5.96-17.48,16.1-17.48,8.76,0,14.82,4.13,14.82,12.65h-3.94c0-6.35-4.18-9.3-10.93-9.3-7.33,0-12.01,4.04-12.01,13.78v1.03c0,9.55,4.63,13.44,12.06,13.44,6.74,0,10.98-2.9,10.98-9.3h3.84c0,8.66-6.3,12.65-14.92,12.65-10.34,0-16-5.76-16-17.48Z"></path><path d="M486.28,30.66h3.89v14.82h19.59v-14.82h3.89v33.77h-3.89v-15.56h-19.59v15.56h-3.89V30.66Z"></path><path d="M520.74,47.55c0-11.67,6.3-17.48,16.79-17.48s16.79,5.81,16.79,17.48-6.25,17.48-16.79,17.48-16.79-5.81-16.79-17.48ZM550.33,48.09v-1.03c0-9.65-5.07-13.64-12.8-13.64s-12.75,3.99-12.75,13.64v1.03c0,9.6,5.07,13.59,12.75,13.59s12.8-3.99,12.8-13.59Z"></path><path d="M559.69,47.55c0-11.67,6.3-17.48,16.79-17.48s16.79,5.81,16.79,17.48-6.25,17.48-16.79,17.48-16.79-5.81-16.79-17.48ZM589.27,48.09v-1.03c0-9.65-5.07-13.64-12.8-13.64s-12.75,3.99-12.75,13.64v1.03c0,9.6,5.07,13.59,12.75,13.59s12.8-3.99,12.8-13.59Z"></path><path d="M600.45,30.66h3.89v30.37h16.69v3.4h-20.58V30.66Z"></path></svg><span class="label" style="color:var(--muted-ink)">Escola de louvor e adoração</span></div>
 <nav class="foot-col" aria-label="A escola"><span class="label">A escola</span><a href="#sobre">Quem somos</a><a href="#pilares">Pilares</a><a href="#ministrantes">Professores</a></nav>
-<nav class="foot-col" aria-label="Inscrição"><span class="label">Inscrição</span><a href="#participar">Como participar</a><a href="#faq">FAQ</a><a href="#pagamento">Fazer inscrição</a></nav>
+<nav class="foot-col" aria-label="Inscrição"><span class="label">Inscrição</span><a href="#participar">Como participar</a><a href="#faq">FAQ</a><a href="https://loja.infinitepay.io/risenschool/wxl2236-aula-presencial---risen-school---cartao-de">Fazer inscrição</a></nav>
 <div class="foot-col"><span class="label">Contato</span><span>Alphaville, SP</span><a href="https://www.instagram.com/risenschool.ofc/" target="_blank" rel="noopener">@risenschool.ofc</a><a href="https://www.instagram.com/felopes.ofc/" target="_blank" rel="noopener">@felopes.ofc</a></div>
 </div>
 <div class="foot-bottom label"><span>© 2026 Risen School</span><span lang="he" style="letter-spacing:.08em">קום · תקומה · תחיה</span></div>
@@ -500,36 +452,6 @@ a{color:var(--gold)} a:hover{color:var(--gold-2)}
     });
   }
   setTimeout(function(){ dlg.showModal(); if(src){ iniciar(); } },400);
-})();
-</script>
-<script>
-(function(){
-  var FORM_URL='#pagamento';
-  var dlg=document.getElementById('checkout'); if(!dlg||!dlg.showModal) return;
-  var form=document.getElementById('ck-form'), err=document.getElementById('ck-err'),
-      btn=document.getElementById('ck-submit'), x=document.getElementById('ck-close');
-  function abrir(e){ e.preventDefault(); err.hidden=true; dlg.showModal(); setTimeout(function(){document.getElementById('ck-nome').focus();},50); }
-  document.querySelectorAll('a[href="'+FORM_URL+'"]').forEach(function(a){ a.addEventListener('click',abrir); });
-  if(location.hash==='#pagamento'){ setTimeout(function(){ dlg.showModal(); },600); }
-  x.addEventListener('click',function(){ dlg.close(); });
-  dlg.addEventListener('click',function(e){ if(e.target===dlg) dlg.close(); });
-  function erro(m){ err.textContent=m; err.hidden=false; btn.disabled=false; btn.textContent='Ir para o pagamento'; }
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var d={ nome:form.nome.value.trim(), email:form.email.value.trim(), telefone:form.telefone.value.trim(),
-            metodo:(form.querySelector('input[name=metodo]:checked')||{}).value||'pix' };
-    if(d.nome.length<3) return erro('Informe o nome completo.');
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) return erro('Informe um e-mail válido.');
-    if(d.telefone.replace(/\D/g,'').length<10) return erro('Informe o WhatsApp com DDD.');
-    err.hidden=true; btn.disabled=true; btn.textContent='Gerando pagamento…';
-    fetch('/.netlify/functions/criar-checkout',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(d)})
-      .then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ return {ok:r.ok,j:j}; }); })
-      .then(function(res){
-        if(res.ok && res.j.url){ btn.textContent='Abrindo pagamento…'; window.location.href=res.j.url; }
-        else erro(res.j.erro||'Não foi possível gerar o pagamento. Tente de novo ou fale com a gente no WhatsApp.');
-      })
-      .catch(function(){ erro('Sem conexão com o servidor. Tente de novo ou fale com a gente no WhatsApp.'); });
-  });
 })();
 </script>
 
