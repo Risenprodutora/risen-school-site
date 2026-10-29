@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W46K8YS9H3"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-W46K8YS9H3');
+</script>
 <title>Risen School</title>
 <meta name="description" content="Risen School, escola de louvor e adoração. Imersão em 28 de novembro de 2026, em Alphaville, SP.">
 <meta property="og:title" content="Risen School · Escola de louvor e adoração">
@@ -455,5 +461,32 @@ a{color:var(--gold)} a:hover{color:var(--gold-2)}
 })();
 </script>
 
+<script>
+(function(){
+  if(typeof gtag!=='function') return;
+  function onde(el){
+    var s=el.closest('section,header,footer,nav');
+    return (s&&(s.id||s.className.split(' ')[0]))||'pagina';
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href]'); if(!a) return;
+    var h=a.getAttribute('href')||'';
+    var txt=(a.textContent||'').trim().slice(0,40);
+    if(h.indexOf('loja.infinitepay.io')>-1){
+      gtag('event','clique_inscricao',{botao:txt,local:onde(a),transport_type:'beacon'});
+      gtag('event','generate_lead',{currency:'BRL',value:169,transport_type:'beacon'});
+    } else if(h.indexOf('wa.me')>-1){
+      gtag('event','clique_whatsapp',{botao:txt,local:onde(a),transport_type:'beacon'});
+    } else if(h.indexOf('instagram.com')>-1){
+      gtag('event','clique_instagram',{perfil:h.replace(/.*instagram\.com\//,'').replace(/\/$/,''),transport_type:'beacon'});
+    }
+  },true);
+  var v=document.getElementById('vpop-video');
+  if(v){
+    v.addEventListener('play',function(){gtag('event','video_convite_play');},{once:true});
+    v.addEventListener('ended',function(){gtag('event','video_convite_completo');},{once:true});
+  }
+})();
+</script>
 </body>
 </html>
